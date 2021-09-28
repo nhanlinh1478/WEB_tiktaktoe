@@ -1,5 +1,6 @@
 import React from "react";
 import Square from "./Square";
+const BOARD_SIZE = 3;
 export default class Board extends React.Component {
   renderSquare(i) {
     let winningSquare =
@@ -15,11 +16,13 @@ export default class Board extends React.Component {
 
   render() {
     const boardSquares = [];
-    for (let row = 0; row < 3; row++) {
+    for (let row = 0; row < BOARD_SIZE; row++) {
       let boardRow = [];
-      for (let col = 0; col < 3; col++) {
+      for (let col = 0; col < BOARD_SIZE; col++) {
         boardRow.push(
-          <span key={row * 3 + col}>{this.renderSquare(row * 3 + col)}</span>
+          <span key={row * BOARD_SIZE + col}>
+            {this.renderSquare(row * BOARD_SIZE + col)}
+          </span>
         );
       }
       boardSquares.push(
